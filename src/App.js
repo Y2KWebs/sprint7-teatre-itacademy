@@ -3,7 +3,8 @@ import styled from "styled-components";
 import React, { useState } from "react";
 
 const StyledDiv = styled.div`
-  display: ${(props) => (props.display ? "flex" : "none")};
+  background-color: ${(props) => (props.display ? "#ffc0cb" : "none")};
+  display: flex;
   width: 80%;
   padding: 10px;
 `;
