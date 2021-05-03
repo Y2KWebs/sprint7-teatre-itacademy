@@ -1,12 +1,24 @@
 import data from "./data/frases.json";
+import styled from "styled-components";
 
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  font-familily: Sans;
+  padding: 10px;
+`;
+
+const StyledButton = styled.button`
+  width: 100%;
+`;
 function App() {
   return (
-    <div>
+    <StyledDiv>
       {data.map((e) => (
-        <p>{e}</p>
+        <StyledDiv>{e}</StyledDiv>
       ))}
-    </div>
+    </StyledDiv>
   );
 }
 
