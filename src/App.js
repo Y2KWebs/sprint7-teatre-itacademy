@@ -1,24 +1,39 @@
 import data from "./data/frases.json";
 import styled from "styled-components";
+import React, { useState } from "react";
 
 const StyledDiv = styled.div`
+  background-color: ${(props) => (props.display ? "#ffc0cb" : "none")};
   display: flex;
-  flex-direction: column;
   width: 80%;
-  font-familily: Sans;
   padding: 10px;
 `;
 
 const StyledButton = styled.button`
-  width: 100%;
+  width: 50%;
+  padding: 30px;
 `;
 function App() {
+  const [index, setIndex] = useState(0);
+
   return (
-    <StyledDiv>
-      {data.map((e) => (
-        <StyledDiv>{e}</StyledDiv>
+    <div>
+      <StyledButton
+        disabled={index < 1}
+        onClick={() => setIndex((currentIndex) => currentIndex - 1)}
+      >
+        Anterior
+      </StyledButton>
+      <StyledButton
+        disabled={index >= data.length - 1}
+        onClick={() => setIndex((currentIndex) => currentIndex + 1)}
+      >
+        Siguiente
+      </StyledButton>
+      {data.map((e, indexData) => (
+        <StyledDiv display={indexData === index}>{e}</StyledDiv>
       ))}
-    </StyledDiv>
+    </div>
   );
 }
 
